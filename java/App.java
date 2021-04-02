@@ -7,10 +7,10 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
 //-----------------------------1 и 2 задание----------------------------------------------------
-      App app = new App();
-      app.arr();
-      int[] arr1 = {1,2,3,4,5,6};
-      app.toArrayList(arr1);
+        Integer[] arr1 = {1,2,3,4,5,6};
+        App app = new App();
+        app.arr(arr1, 0, 1);
+        app.toArrayList(arr1);
 //-----------------------------------3 задание------------------------------------------------------
       Box<Orange> box1 = new Box<>();
       Box<Apple> box2 = new Box<>();
@@ -31,23 +31,23 @@ public class App {
 
     }
 
-    public void arr(){
-        int [] array  = {1, 2, 3, 4, 5};
+    public static <T> void arr(T [] array, int index1, int index2){
         System.out.println(Arrays.toString(array) + " - до перемены элементов: [0], [1]");
-        if (array[0] != array[1]){
-            int a = array[0];
-            array[0] = array[1];
-            array[1] = a;
+        if (array[index1] != array[index2]){
+            T a = array[index1];
+            array[index1] = array[index2];
+            array[index2] = a;
         }
         System.out.println(Arrays.toString(array));
     }
 
-    public void toArrayList(int [] a){
-        ArrayList list = new ArrayList();
+    public static <E> void toArrayList(E [] a){
+        ArrayList<E> list = new ArrayList<>();
         for (int i = 0; i < a.length; i++) {
             list.add(a[i]);
         }
         list.toString();
         System.out.println(list);
+        //Arrays.asList(a);  как еще один вариант.
     }
 }
